@@ -1,0 +1,98 @@
+.footer {
+    @extend .container;
+    width: 100%;
+    padding: 2rem 1.5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    
+    @include respond(tab-port) {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    &__block {
+        width: 100%;
+        @include respond(tab-port) { width: calc(100% / 3);}
+        @include respond(tab-land) {width: calc((50% + 1rem) / 3);}
+    }
+
+    &__list {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+        @include respond(tab-port) {flex-direction: column;}
+    }
+
+    &__item {
+        width: 50%;
+        font-size: 0.8rem;
+        line-height: 1em;
+        margin-bottom: 0.8rem;
+        &:hover {color: $secondary-color;}
+    }
+
+    &__link {
+        
+    }
+
+    &__header {
+        margin-bottom: 2rem;
+        position: relative;
+        @include respond(desktop) {font-size: 1rem;}
+
+        &::after {
+            content: '';
+            display: block;
+            width: 4rem;
+            height: 1px;
+            background-color: $secondary-color;
+            position: absolute;
+            bottom: -0.75rem;
+            left: 0;
+            
+        }
+    }
+
+    &__text {
+
+        p {
+            font-size: 0.8rem;
+        } 
+        margin-bottom: 1rem;
+    }
+
+    &__subscribe {
+        width: 100%;
+        @include respond(tab-land) {width: calc(50% - 1rem);}
+    }
+
+    &__form {
+        width: 100%;
+
+        input {
+            width: 100%;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid $gray-color;
+            outline: none;
+            border-radius: 4px;
+            position: relative;
+            
+
+            &:focus {
+                border: 1px solid $gray-color;
+                outline: none;
+                position: relative;
+                border-bottom-color: $primary-color;
+            }
+        }
+
+        button {
+            padding: 0.75rem 2rem;
+        }
+    }
+
+}

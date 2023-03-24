@@ -1,0 +1,117 @@
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    // defines what rem should be
+    font-size: 100%;  //16px
+
+    @include respond(tab-port) {
+        font-size: 75%;  //12px
+    }
+
+    @include respond(tab-land) {
+        font-size: 75%;   //12px
+    }
+
+    @include respond(desktop) {
+        font-size: 100%; //16px
+    }
+    
+    @include respond(big-desktop) {
+        // font-size: calc( 1920px / 100vw); //16px
+    }
+}
+
+html {
+    -webkit-text-size-adjust: none; 
+    text-size-adjust: none;
+}
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+body {
+    text-rendering: optimizeSpeed;
+    background-color: $white-color;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: $black-color;
+    display: flex;
+    flex-direction: column;
+    &.admin-bar {
+        min-height: calc(100vh - var(--wp-admin--admin-bar--height));
+    }
+}
+
+img,
+picture {
+    display: block;
+    max-width: 100%;
+}
+
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+    text-underline-position: under;
+    text-decoration-thickness: 8;
+}
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+     scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+}
+
+.wrapper {
+    width: 100%;
+    height: inherit;
+    flex: 1;
+    
+
+    
+ }
+ 
+
+::selection {
+    background-color: $primary-color; 
+    color: white;
+}
+
+@media screen and (max-width: 600px) {
+    #wpadminbar {position: fixed;}
+}

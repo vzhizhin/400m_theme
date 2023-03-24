@@ -1,0 +1,58 @@
+.wp-block-button {
+
+    display: inline-block;
+    padding-right: 3rem;
+    background-color: transparent;
+    padding: 0 0.5rem 1.25rem 0;
+    
+    border: none;
+    border-bottom: 1px solid $white-color;
+    @include respond(tab-land) {
+        padding: 0 0.25rem 0.75rem 0;
+    }
+
+
+    &__link {
+        padding: 0;
+        background-color: transparent;
+        border-radius: 0;
+        font-family: 'Raleway', Arial, Helvetica, sans-serif;
+        display: inline-block;
+        font-size: 2rem;
+        line-height: 1em;
+        text-transform: capitalize;
+        @include respond(tab-land) {
+            font-size: 1.5rem;
+        }
+        
+        &:hover {
+            text-decoration: none;
+        }
+
+        &::after {
+            display: inline-block;
+            width: 2rem; 
+            height: 2rem;
+            margin: 0 0 -2px 1rem;
+            background-image: url('img/arrow.svg');
+            background-size: auto 1.75rem;
+            background-position: center right;
+            background-repeat: no-repeat;
+            content: "";
+            transition: all 0.2s linear;
+            @include respond(tab-land) {
+                width: 1.2rem;
+                height: 1.2rem;
+                margin: 0 0 0 1rem;
+            }
+        }
+
+        &:hover::after, &:active::after {
+            margin-left: 1.5rem;
+        }
+
+        &, &:link, &:visited, &:active {
+            color: $white-color;
+        }
+    }
+}

@@ -1,0 +1,43 @@
+a.button, .button {
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 1em;
+    padding: 1rem 2rem;
+    min-width: 11rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid $primary-color;
+    background-color: $primary-color;
+    &:last-child {margin: 0;}
+    &, &:link, &:active, &:visited {color: $white-color;}
+    &:hover {
+        background-color: $white-color;
+        color: $primary-color;
+    }
+    &--blue {
+        background-color: $secondary-color; 
+        border-color: $secondary-color;
+        &:hover {color: $secondary-color;}
+    }
+    &--gray {
+        background-color: $gray-color; 
+        border-color: $gray-color;
+        &:hover {color: $gray-color;}
+    }
+    &--black {
+        background-color: $gray-color-dark; 
+        border-color: $gray-color-dark;
+        &:hover {color: $gray-color-dark;}
+    }
+
+    &--empty {
+        background-color: transparent;
+        &, &:link, &:active, &:visited {color: $black-color;}
+        &:hover {color: $primary-color;}
+    }
+    &--blue.button--empty {
+        &:hover {color: $secondary-color;}
+    }
+}

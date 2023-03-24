@@ -1,0 +1,105 @@
+.arrow {
+    width: 6rem;
+    margin: 0 auto 10rem;
+    z-index: 10;
+    animation: moveDown 2s ease;
+    animation-iteration-count: 4;
+
+
+    @include respond(tab-land) {
+        margin-bottom: 5.25rem;
+        width: 3rem;
+    }
+
+    a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 6rem;
+        height: 6rem;
+        border-radius: 6rem;
+        background-color: $black-transparent;
+
+        @include respond(tab-land) {
+            height: 3rem;
+            width: 3rem;
+        }
+
+    }
+
+    img {
+        width: 2rem;
+        height: 2rem;
+        display: block;
+        @include respond(tab-land) {
+            height: 1.5rem;
+            width: 1.5rem;
+        }
+    }
+
+    &--down img {
+        transform: rotate(90deg);
+    }
+}
+
+.arrow-button {
+
+    width: 80px;
+    height: 44px;
+    border: 1px solid $white-color;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+
+       
+    &::before {
+        content: '';
+        width: 14px;
+        height: 14px;
+        background-color: transparent;
+        background-image: url('img/arrow.svg');
+        background-size: auto 14px;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: all 0.2s linear;
+    }
+
+    &--right {
+
+    }
+
+    &--right:hover::before {
+        transform: scale(1.25);
+    }
+
+    &--left::before {
+        transform: rotate(180deg);
+    }
+    &--left:hover::before {
+        transform: rotate(180deg) scale(1.25);
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &--empty {
+        opacity: 0.54;
+    }
+
+    &--empty:hover {
+        cursor: default;
+        transform: none;
+    }
+
+    &--empty:hover::before {
+        transform: none;
+    }
+
+    &--left.arrow-button--empty:hover::before {
+        transform: rotate(180deg);
+    }
+
+    
+}

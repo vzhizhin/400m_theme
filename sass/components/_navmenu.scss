@@ -1,0 +1,214 @@
+.navmenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 120vh;
+    z-index: 1;
+    background-color: $black-color;
+    transform: translateY(-100%);
+    padding: 0 2rem 2rem;
+    opacity: 0;
+    transition: transform 0s linear, opacity 0.2s linear;
+
+    @include respond(tab-land) {
+        opacity: unset;
+        transition: none;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        max-width: 71rem;
+        padding: 0;
+        margin: 0 4rem 0 0;
+        min-height: 0;
+        transform: none;
+        height: 5.625rem;
+        
+        background-color: rgba(0,0,0,0);
+    }
+
+    &.active { 
+        transform: translateY(0);  
+        opacity: 1; 
+    }
+
+    &.closing {
+        transition: transform 0s linear 0.4s, opacity 0.2s linear;
+    }
+
+    &__item {
+        font-size: 2rem;
+        line-height: 1.1em;
+        margin-bottom: 2rem;
+        list-style: none;
+        display: block;
+        position: relative;
+        color: $white-color;
+        text-transform: capitalize;
+        @include respond(tab-port) {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        @include respond(tab-land) {
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: 300;
+            font-style: normal;
+            margin: 0 1rem 0 0;
+            &:last-of-type {margin-right: 0;}
+        }
+
+       
+
+        & &--main_lvl_2 {
+            font-size: 1.5rem;
+            line-height: 1.1em;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            z-index: 100;
+            &:last-child { margin-bottom: 0;}
+            @include respond(tab-land) {
+                font-size: 1.25rem;
+                line-height: 1.5rem;
+                margin-bottom: 1.5rem;
+                display: inline-block;
+            }
+        }
+
+        & > a {
+            @include respond(tab-land) {
+           
+                &::before {
+                    content:'';
+                    display: block;
+                    width: 100%;
+                    height: 1px;
+                    position: absolute;
+                    bottom: -0.5rem;
+                    left: 0;
+                    background-color: $white-color;
+                    transform: scaleX(0);
+                    opacity: 0;
+                    transform-origin: center left;
+                    transition: transform 0.2s linear, opacity 0s linear;
+                }
+
+                &:hover::before {
+                    transform: scaleX(0.4);
+                    opacity: 1;
+                }
+            }
+        }
+
+        &--active {
+            & > a {
+                display: inline-block;
+                position: relative;
+                padding-bottom: 0.5rem;
+                border-bottom: 1px solid $primary-color;
+
+                @include respond(tab-land) {
+                    padding-bottom: 0;
+                    border-bottom: none;
+
+                    &::before {
+                        transform: scaleX(1);
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        &--has-children {
+            position: relative;
+
+            & > a::after {
+                display: inline-block;
+                width: 2rem; 
+                height:1.25rem;
+                margin: 0 0rem 0rem 0.75rem;
+                transition: transform 0.2s linear;
+                background-image: url('img/chevron.svg');
+                background-size: auto 2rem;
+                background-position: left center;
+                background-repeat: no-repeat;
+                content: "";
+
+                @include respond(tab-land) {
+                    width: 1rem;
+                    height: 1rem;
+                    background-size: auto 1rem;
+                }
+            }
+        }
+
+        &--open {
+            & > a::after {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &__dropdown {
+        margin-top: 0rem;
+        max-height: 0;
+        transition: all 0.5s ease;
+        overflow: hidden;
+
+        @include respond(tab-land) {
+            display: block;
+            
+            min-height: 0;
+            opacity: 0;
+            position: absolute;
+            width: 220%;
+            top: 3rem;
+            left: -1.65rem;
+            background-color: rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            border: 1px solid $gray-color;
+            padding: 1.5rem 1.5rem 0;
+            z-index: 2;
+
+            // &::before {
+            //     position: absolute;
+            //     width: 100%;
+            //     height: 100%;
+            //     content: '';
+            //     background-color: rgba(255,0,0,0.2);
+            //     backdrop-filter: blur(10px);
+            //     z-index: -1;
+            // }
+
+        }
+    }
+
+    &__item--open &__dropdown {
+        margin-top: 2rem;
+        max-height: 100vh;
+        @include respond(tab-land) {
+            opacity: 1;
+        }
+    }
+
+    &__link {
+        display: inline-block;
+
+        &, &:link, &:visited, &:active {
+            color: $white-color;
+        }
+        
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+}

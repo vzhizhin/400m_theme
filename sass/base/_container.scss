@@ -1,0 +1,23 @@
+.container {
+    max-width: 100%;
+    padding:  0 1.5rem;
+    margin: 0 auto;
+    @include respond(tab-port) {max-width: 47rem; padding: 0;}
+    @include respond(tab-land) {max-width: 71rem;}
+}
+
+.container.right-column {
+    @include respond(tab-land) {
+        padding-left: 42.5rem;
+
+        .section__title {
+            text-align: left;
+            margin-left: 0;
+        }
+        .section__ruler {
+            margin-left: 0;
+            margin-bottom: 2rem;
+        }
+    }
+    
+}

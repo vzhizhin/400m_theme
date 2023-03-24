@@ -1,0 +1,68 @@
+.features {
+    padding: 4rem 0 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &__item {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 3rem;
+        @include respond(tab-port) {
+            width: calc(50% - 4rem); 
+            margin: 0 2rem 3rem;
+            &:nth-child(odd):nth-last-child(1) {
+                width: 75%;
+            }
+        }
+        &--light {
+            @include respond(tab-land) {
+                width: calc(33% - 4rem); 
+                margin: 0 2rem 3rem;
+                &:nth-child(odd):nth-last-child(1) {
+                    width: calc(33% - 4rem)
+                }
+            }
+        }
+        
+        // @include respond(tab-land) {width: calc(25% - 4rem); margin: 0 2rem 2rem;}
+        
+    }
+
+    &__icon {
+        width: 3.25rem;
+        height: 3.75rem;
+        margin: 0 auto 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        background-image: url('img/icon_back.svg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 3.25rem;
+        color: $secondary-color;
+
+        & img {
+            position: relative;
+            width: 1.2rem;
+            height: auto;
+            top: -0.15rem;
+            color: $secondary-color;
+        }
+
+        &--light {
+            background-image: none;
+            height: 2rem;
+            margin-bottom: 2rem;
+            & img {
+                width: 3rem;
+            }
+        }
+    }
+
+    &__text {
+
+    }
+}

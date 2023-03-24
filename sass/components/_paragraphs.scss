@@ -1,0 +1,35 @@
+.paragraphs {
+    margin-top: 4rem; 
+    display: flex;
+    flex-direction: column;
+    @include respond(tab-land) {flex-direction: row;}
+
+    &__item {
+        margin-bottom: 2rem;
+        &:last-child {margin-bottom: 0;}
+        @include respond(tab-land) {width: calc(50% - 4rem); margin: 0 2rem 2rem;}
+    }
+
+    &__title {
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+        position: relative;
+
+        &:after {
+            content: '';
+            display: block;
+            width: 4rem;
+            height: 1px;
+            background-color: $secondary-color;
+            position: absolute;
+            bottom: -1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    &__text {
+
+
+    }
+}

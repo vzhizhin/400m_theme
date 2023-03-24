@@ -1,0 +1,81 @@
+.section {
+    width: 100%;
+    margin: 0 auto;
+    scroll-margin-top: 6em;
+    text-align: center;
+    padding: 2rem 0 4rem 0;
+    @include respond(tab-land) {
+        // max-width: 80.5rem;
+    }
+
+    &__header {
+        position: relative;
+        text-align: center;
+        font-size: 1rem;
+        color: $primary-color;        
+        margin-bottom: 3rem;
+        @include respond(tab-land) {
+      
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            width: 4rem;
+            height: 1px;
+            background-color: $primary-color;
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+    }
+
+    &__title {
+        text-align: center;
+        margin: 0 auto;
+        margin-bottom: 2rem;
+        @include respond(tab-port) {
+            width: 75%;
+        }
+    }
+
+    &__ruler {
+        width: 4rem;
+        height: 1px;
+        margin: 0 auto 1.5rem;
+        background-color: $primary-color;
+        border: none;
+    }
+    &__title + &__ruler {margin-top: -0.5rem;}
+
+    &__text {
+        text-align: center;
+        margin: 0 auto;
+        @include respond(tab-port) {width: 60%;}
+    }
+
+    ul, ol {
+        margin: 0 4rem 2rem 4rem;
+        // text-align: left;
+        li {
+            line-height: 1.5em;
+            margin-bottom: 0.5rem;}
+    }   
+
+}
+
+.crisis {padding-top: 0;}
+
+.about-us, .core-values {
+    background-color: $gray-color-light;
+}
+
+.partners {
+    background-color: $gray-color-dark;
+    color: $white-color;
+    & .section__title {
+        color: $secondary-color;
+    }
+}

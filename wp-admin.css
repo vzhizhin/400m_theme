@@ -1,0 +1,24 @@
+.wp-block-group {
+    background-color: #f0f0f0;
+    padding: 2rem 1rem 1rem;
+    position: relative;
+}
+
+.wp-block-group.photo-block::before {
+    content: 'Секция для блоков с фото. Для добавления блока нажмите + внутри секции (серой зоны) и выберите "Медиа и текст"';
+    color: gray;
+    font-size: 0.75rem;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+
+.wp-block-group.partners::before {
+    content: 'Список благотворительных фондов с логотипами формируется автоматически ';
+    color: gray;
+    font-size: 0.75rem;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}

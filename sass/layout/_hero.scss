@@ -1,0 +1,60 @@
+.hero {
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 3rem 1.5rem;
+    text-align: left;
+    @include respond(tab-port) {max-height: 55rem;}
+    @include respond(tab-land) {max-height: 50rem; justify-content: center;}
+    @include respond(big-desktop) {max-height: 62rem;}
+
+    &__title-block {
+        width: 100%;
+        margin: 0 auto;
+        @include respond(tab-port) {max-width: 47rem;}
+        @include respond(big-desktop) {max-width: 71rem;}
+    }
+
+    &__logo {
+        height: 2rem;
+        margin-bottom: 3rem;
+        @include respond(tab-port) {height: 3.5rem;}
+        @include respond(tab-land) {display: none;}
+    }
+
+    &__title {
+        font-size: 2rem;
+        color: $white-color;
+        margin-bottom: 1rem;
+        @include respond(tab-port) {
+            font-size: 4rem;
+            line-height: 0.95em;
+            margin-bottom: 2rem;
+        }
+        @include respond(big-desktop) {
+                font-size: 5rem;
+                line-height: 0.9em;
+        }
+    }
+
+    &__subline {
+        color: $primary-color;
+        margin-bottom: 0.5rem;
+        max-width: 50%;
+        @include respond(tab-port) {max-width: 100%; margin-bottom: 1rem;}
+    }
+
+    &__paragraph {
+        font-weight: 300;
+        color: $white-color;
+        @include respond(tab-port) {margin-bottom: 2rem;}
+    }
+
+    & .button--empty {
+        &, &:link, &:active, &:visited {color: $white-color;}
+        &:hover {color: $primary-color;}
+    }
+}

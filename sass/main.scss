@@ -1,0 +1,54 @@
+/*
+Theme Name: IcDent M Main theme
+Author: Victor Zhizhin 
+Version: 1.0    
+*/ 
+
+/* Document
+   ========================================================================== */ 
+
+
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/base";
+@import "base/animations";
+@import "base/typography";
+@import "base/utilities";
+@import "base/sections";
+@import "base/container";
+
+
+@import "components/mainmenu";
+@import "components/navmenu";
+@import "components/button";
+@import "components/paragraphs";
+@import "components/project";
+
+@import "components/arrow-buttons";
+@import "components/photo-block";
+@import "components/accordeon";
+@import "components/link-button";
+@import "components/cards";
+@import "components/logolist";
+
+@import "layout/header";
+@import "layout/footer";
+@import "layout/hero";
+@import "layout/features";
+@import "layout/banner";
+@import "layout/question-form";
+@import "layout/posts-feed";
+
+
+@import "layout/gallery";
+@import "layout/pricelist";
+
+
+
+
+@import "pages/frontpage";
+
+
+

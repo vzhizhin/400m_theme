@@ -1,0 +1,64 @@
+.u-center-text {
+    text-align: center;
+}
+
+.u-margin-big {
+    margin-bottom: 8rem;
+}
+.u-margin-medium {
+    margin-bottom: 4rem;
+}
+
+.u-margin-small {
+    margin-bottom: 1rem;
+}
+
+// bootstrap d-class mobile-first
+
+.d-block { display: block !important;}
+.d-inline { display: inline !important;}
+.d-inline-block { display: inline-block !important;}
+.d-none { display: none !important;}
+
+.d-sm-block { @include respond(phone) {display: block !important;} }
+.d-sm-inline { @include respond(phone) {display: inline !important;} }
+.d-sm-inline-block { @include respond(phone) {display: inline-block !important;} }
+.d-sm-none { @include respond(phone) {display: none !important;} }
+
+
+.d-md-block { @include respond(tab-port) {display: block !important;} }
+.d-md-inline { @include respond(tab-port) {display: inline !important;} }
+.d-md-inline-block { @include respond(tab-port) {display: inline-block !important;} }
+.d-md-none { @include respond(tab-port) {display: none !important;} }
+
+.d-lg-block { @include respond(tab-land) {display: block !important;} }
+.d-lg-inline { @include respond(tab-land) {display: inline !important;} }
+.d-lg-inline-block { @include respond(tab-land) {display: inline-block !important;} }
+.d-lg-none { @include respond(tab-land) {display: none !important;} }
+
+
+.d-xl-block { @include respond(desktop) {display: block !important;} }
+.d-xl-inline { @include respond(desktop) {display: inline !important;} }
+.d-xl-inline-block { @include respond(desktop) {display: inline-block !important;} }
+.d-xl-none { @include respond(desktop) {display: none !important;} }
+
+.d-xxl-block { @include respond(big-desktop) {display: block !important;} }
+.d-xxl-inline { @include respond(big-desktop) {display: inline !important;} }
+.d-xxl-inline-block { @include respond(big-desktop) {display: inline-block !important;} }
+.d-xxl-none { @include respond(big-desktop) {display: none !important;} }
+
+// opacity revealer for scroll
+
+.toscroll {
+   // transform: translateY(2rem);
+    transition: opacity 1s linear, transform 0.3s linear;
+}
+
+.toscroll.notscrolled {
+    opacity: 0;
+}
+
+.toscroll.scrolled {
+    opacity: 1;
+   // transform: translateY(0);
+}

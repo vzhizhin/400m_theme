@@ -1,0 +1,154 @@
+.mainmenu {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    transition: background-color 0.3s linear;
+    @include respond(tab-land) { transition: none; background-color: rgba($black-color, 0.5); }
+    body.admin-bar & {
+        top: 32px;
+    }
+
+    &::after {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        // background-color: red;
+        content: '';
+        top: 0;
+        left: 0;
+        // backdrop-filter: blur(2rem);
+        z-index: -1;
+    }
+
+    &__topbar {
+        width: inherit;
+        height: 5.5rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        position: relative;
+        z-index: 50;
+        padding: 2rem;
+
+        @include respond(tab-land) {
+            width: 100%;
+            margin: 0 auto;
+            max-width: 80.5rem;
+        }
+    }
+
+    &__logo--desktop {
+        display: none;
+        position: relative;
+        height: 7.5rem;
+        min-width:23rem;
+        margin-right: auto;
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 11rem;
+            height: 7.5rem;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background-color: $black-color;
+        }
+
+        img {
+            position: relative;
+            top: 2rem;
+            left: 1rem;
+            height: 4rem;
+            width: auto;
+        }
+        @include respond(tab-land) {display: block;}
+    }
+    &__logo--mobile {
+        opacity: 0;
+        transition: opacity 0.3s linear;
+        margin-right: auto;
+        z-index: 10;
+        img {
+            height: 2rem;
+            width: auto;
+            @include respond(tab-port) {height: 3rem;}
+        }
+        @include respond(tab-land) {display: none;}
+    }
+    &.active {
+        background-color: rgba($black-color, 0.5);
+        
+    }
+    &.active &__logo--mobile { opacity: 1;}
+
+    &__menubutton {
+        width: 3rem;
+        height: 3rem;
+        z-index: 10;
+        @include respond(tab-land) { display: none;}
+
+        a {
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 3rem;
+            height: 3rem;
+            background-color: transparent;
+
+            span {
+                position: relative;
+                &,
+                &::before,
+                &::after {
+                    width: 2rem;
+                    height: 3px;
+                    background-color: white;
+                    content: '';
+                    display: inline-block;
+                    border-radius: 1px;
+                    @include respond(tab-port) { width: 2.25rem;}
+                }
+                &::before,
+                &::after {
+                    position: absolute;
+                    left: 0; 
+                    transition: all 0.2s;
+                }
+                &::before {top: -0.75rem;}
+                &::after {top: 0.75rem;}
+            }
+
+            &:hover {
+                cursor: pointer;
+                @media (hover: hover) {
+                    span {
+                        &::before {top: -1rem;}
+                        &::after {top: 1rem;}
+                    }
+                }
+                
+            }
+        }
+    }
+
+    &__menubutton.active {
+        a span {
+            height: 0;
+        }
+        a span::after {
+            top: 0;
+            transform: rotate(-45deg);
+        }
+        a span::before {
+            top: 0px;
+            transform: rotate(45deg);
+        }
+    }
+
+    &__searchbutton {
+        margin-right: 1rem;
+    }
+}
